@@ -32,4 +32,14 @@ All of these support or can be adapted for *image + text* conditioning. For prod
 - **Temporal quality** (motion realism)
 - **Inference cost and speed**
 
----
+## 🔍 Comparison of Open-Source Virtual Try-On (VTON) Models
+
+| Model | GitHub / Link | Model Type / Architecture | Face/Identity Preservation* | Parameters | Runtime / VRAM Info |
+|------|--------------|--------------------------|-----------------------------|------------|----------------------|
+| **CatVTON** | [github.com/Zheng-Chong/CatVTON](https://github.com/Zheng-Chong/CatVTON) | Diffusion (latent) – concatenation of garment & person images. :contentReference[oaicite:1]{index=1} | ✅ *implicitly* (designed to preserve person image and only transfer garment) | ~**899.06M** total; ~49.57M trainable. :contentReference[oaicite:2]{index=2} | < 8 GB VRAM for 1024×768 resolution. :contentReference[oaicite:3]{index=3} |
+| **IDM‑VTON** | [github.com/yisol/IDM-VTON](https://github.com/yisol/IDM-VTON) | Diffusion model (exemplar-based) for virtual try-on in the wild. :contentReference[oaicite:5]{index=5} | ✅ Focuses on garment detail and authenticity; less explicit face loss but preserves source identity well. :contentReference[oaicite:6]{index=6} | *Not publicly specified* | VRAM / runtime not explicitly given; built for “in the wild” use. |
+| **OO TDiffusion** | [github.com/levihsu/OOTDiffusion](https://github.com/levihsu/OOTDiffusion) | Latent diffusion model – outfitting fusion in self-attention layers. :contentReference[oaicite:8]{index=8} | ✅ Emphasis on preserving garment and human consistency; face/identity region treated as person image input | *Parameters not clearly listed* | Runtime/VRAM not clearly given |
+| **DCI‑VTON** | [github.com/bcmi/DCI-VTON-Virtual-Try-On](https://github.com/bcmi/DCI-VTON-Virtual-Try-On) | Diffusion + warping module; exemplar-based inpainting. :contentReference[oaicite:10]{index=10} | ✅ Claims to “preserve the details of both humans and clothes” (which suggests identity/face preservation) | *Parameters not clearly listed* | Runtime/VRAM not clearly given |
+| **VITON (original)** | [github.com/xthan/VITON](https://github.com/xthan/VITON) | GAN-based virtual try-on (two-stage warp + blend). :contentReference[oaicite:12]{index=12} | ⚠️ Basic; older method may distort face/identity more easily | *Parameters not clearly listed* | Runtime/VRAM older generation; high relative to newer diffusion models |
+
+\* “Face/Identity Preservation” here refers to how explicitly the method mentions preserving the person’s facial/identity features (face, hair, body shape) or uses mechanisms (identity loss, face mask, segmentation) to protect them.
