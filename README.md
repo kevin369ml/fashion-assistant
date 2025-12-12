@@ -43,3 +43,19 @@ All of these support or can be adapted for *image + text* conditioning. For prod
 | **VITON (original)** | [github.com/xthan/VITON](https://github.com/xthan/VITON) | GAN-based virtual try-on (two-stage warp + blend). :contentReference[oaicite:12]{index=12} | ⚠️ Basic; older method may distort face/identity more easily | *Parameters not clearly listed* | Runtime/VRAM older generation; high relative to newer diffusion models |
 
 \* “Face/Identity Preservation” here refers to how explicitly the method mentions preserving the person’s facial/identity features (face, hair, body shape) or uses mechanisms (identity loss, face mask, segmentation) to protect them.
+
+
+
+RAG:
+In classical RAG:
+- Retrieve documents → we retrieve top-K recipes.
+- Augment query with context → our compact context.
+- Generate → LLM produces:
+        -- reranking
+        -- explanations
+        -- comparisons
+        -- question answering
+
+ - consistent formatting
+ - predictable LLM behavior
+ - no overloading the LLM with unnecessary text
